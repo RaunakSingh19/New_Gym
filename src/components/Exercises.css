@@ -1,0 +1,140 @@
+/* General Styles */
+.exercises-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.0rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .section-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .section-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .divider {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+  }
+  
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .hero-image {
+    width: 100%;
+    height: 400px; /* Fixed height for consistency */
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+  }
+  
+
+  .button {
+    border-radius: 4px;
+    background-color: #d81b60;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 300px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .section {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .reverse {
+      flex-direction: column;
+    }
+  
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .section-subtitle {
+      font-size: 1.25rem;
+    }
+  
+    .section-text {
+      font-size: 0.9rem;
+    }
+  
+    .hero-image {
+      height: 300px; /* Adjust height for smaller screens */
+    }
+  }

@@ -1,0 +1,51 @@
+/* InteractiveBody.css */
+.interactive-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .body-image {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  .muscle-group-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .muscle-link {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .muscle-link:hover {
+    background-color: #e64a19;
+  }
+  .body-svg {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  
+  .body-svg path:hover {
+    fill: rgba(255, 87, 34, 0.3); /* Highlight on hover */
+    cursor: pointer;
+  }
+    
