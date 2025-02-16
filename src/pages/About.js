@@ -1,128 +1,104 @@
-import React from "react";
-import { Box, Typography, Button, Grid } from "@mui/material";
-import GymImage from "../assets/images/abc.jpg"; // Update with your actual image path
-import GymImage1 from "../assets/images/background_img.jpg";
+import { Box, Typography, Button, Grid, Card, CardContent } from "@mui/material";
+import Carousel from "react-material-ui-carousel";
+import GymImage1 from "../assets/images/1.jpg";
+import GymImage2 from "../assets/images/2.jpg";
+import GymImage3 from "../assets/images/abc.jpg";
+import "./About.css";
+
 const About = () => {
+  const images = [GymImage1, GymImage2, GymImage3];
+
   return (
-    <Box>
+    <Box className="about-container">
       {/* Hero Section */}
-      <Box
-        sx={{
-          backgroundImage: `url(${GymImage1})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          height: "60vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#fff",
-          textAlign: "center",
-          padding: "1rem",
-        }}
-      >
-        <Box
-          sx={{
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
-            padding: "2rem",
-            borderRadius: "10px",
-          }}
-        >
-          <Typography variant="h2" sx={{ fontWeight: "bold", mb: 2 }}>
-            Welcome to Our Gym
-          </Typography>
-          <Typography variant="h6">
-            Achieve your fitness goals with the best trainers and state-of-the-art
-            facilities!
-          </Typography>
-        </Box>
+      <Box className="hero-section">
+        <Typography variant="h3" className="hero-title">
+          About Our Gym
+        </Typography>
+        <Typography variant="body1" className="hero-subtitle">
+          A fitness center committed to your health and well-being.
+        </Typography>
       </Box>
 
-      {/* About Content */}
-      <Box sx={{ padding: "2rem" }}>
-        <Grid container spacing={4}>
-          {/* Left Content */}
-          <Grid item xs={12} md={6}>
-            <Typography
-              variant="h4"
-              sx={{ fontWeight: "bold", mb: 2, color: "primary.main" }}
-            >
-              Why Choose Us?
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 3, lineHeight: "1.8" }}>
-              At our gym, we believe in empowering you to lead a healthier life.
-              Whether you're a beginner or a pro, we offer customized plans,
-              top-notch equipment, and supportive trainers to help you excel.
-            </Typography>
-            <Button
-              variant="contained"
-              color="secondary"
-              size="large"
-              sx={{
-                textTransform: "uppercase",
-                fontWeight: "bold",
-                padding: "0.8rem 2rem",
-              }}
-            >
-              Join Us Today
-            </Button>
-          </Grid>
+      {/* Image Carousel - Separate Section */}
+      <Box className="carousel-section">
+        <Carousel className="image-carousel" autoPlay={false} navButtonsAlwaysVisible>
+          {images.map((img, index) => (
+            <Card key={index} className="carousel-card">
+              <CardContent>
+                <img src={img} alt={`Slide ${index + 1}`} className="carousel-image" />
+              </CardContent>
+            </Card>
+          ))}
+        </Carousel>
+      </Box>
 
-          {/* Right Content */}
-          <Grid item xs={12} md={6}>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%",
-              }}
-            >
-              <img
-                src={GymImage}
-                alt="Gym Facility"
-                style={{
-                  width: "100%",
-                  maxHeight: "300px",
-                  borderRadius: "10px",
-                  objectFit: "cover",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
-                }}
-              />
-            </Box>
-          </Grid>
+      {/* Why Choose Us - Separate Section */}
+      <Box className="why-choose-us">
+        <Typography variant="h4" className="section-title">
+          Why Choose Us?
+        </Typography>
+        <Typography variant="body1" className="section-text">
+          Our gym is equipped with the latest fitness technology and experienced trainers
+          to help you reach your goals. We offer personalized workout plans,
+          nutrition guidance, and a supportive community to keep you motivated.
+        </Typography>
+        <Button variant="contained" color="primary" className="join-btn">
+          Join Now
+        </Button>
+      </Box>
+
+      {/* Features Section */}
+      <Box className="features-section">
+        <Typography variant="h4" className="section-title">
+          Our Features
+        </Typography>
+        <Grid container spacing={3}>
+          {[
+            { title: "Certified Trainers", text: "Work with the best trainers who personalize your fitness journey." },
+            { title: "Modern Equipment", text: "Our gym is stocked with the latest state-of-the-art equipment." },
+            { title: "Personalized Plans", text: "Get custom workout and diet plans tailored to your needs." }
+          ].map((feature, index) => (
+            <Grid item xs={12} sm={4} key={index}>
+              <Card className="feature-card">
+                <CardContent>
+                  <Typography variant="h6" className="feature-title">
+                    {feature.title}
+                  </Typography>
+                  <Typography variant="body2" className="feature-text">
+                    {feature.text}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
         </Grid>
       </Box>
 
-      {/* Call to Action Section */}
-      <Box
-        sx={{
-          backgroundColor: "primary.main",
-          color: "#fff",
-          textAlign: "center",
-          padding: "3rem 2rem",
-          marginTop: "2rem",
-        }}
-      >
-        <Typography variant="h4" sx={{ fontWeight: "bold", mb: 2 }}>
-          Ready to Start Your Fitness Journey?
+      {/* Additional Benefits */}
+      <Box className="new-section">
+        <Typography variant="h4" className="section-title">
+          Additional Benefits
         </Typography>
-        <Typography variant="body1" sx={{ mb: 3 }}>
-          Join our community and transform your health today!
-        </Typography>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{
-            backgroundColor: "#fff",
-            color: "primary.main",
-            textTransform: "uppercase",
-            fontWeight: "bold",
-            padding: "1rem 2rem",
-            "&:hover": { backgroundColor: "#e0e0e0" },
-          }}
-        >
-          Get Started Now
-        </Button>
+        <Grid container spacing={3}>
+          {[
+            { title: "24/7 Access", text: "Workout anytime that fits your schedule." },
+            { title: "Group Classes", text: "Join engaging group sessions for motivation and fun." }
+          ].map((benefit, index) => (
+            <Grid item xs={12} sm={6} key={index}>
+              <Card className="feature-card">
+                <CardContent>
+                  <Typography variant="h6" className="feature-title">
+                    {benefit.title}
+                  </Typography>
+                  <Typography variant="body2" className="feature-text">
+                    {benefit.text}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
     </Box>
   );
